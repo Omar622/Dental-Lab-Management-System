@@ -31,7 +31,7 @@ namespace Laboratory_Management_System
             Database dp = new Database("db_doctors");
             if (dp.setConnection())
             {
-                SqlDataReader sdr = dp.query("select * from table_doctors where Id = '" + _chosen_doctor_id + "'");
+                SqlDataReader sdr = dp.query("select * from table_doctors where Doctor_Id = '" + _chosen_doctor_id + "'");
                 if (sdr.Read())
                 {
                     textBox1.Text = (sdr["Name"].ToString() == "" ? "..." : sdr["Name"].ToString());
@@ -71,12 +71,12 @@ namespace Laboratory_Management_System
                     ImageConverter converter = new ImageConverter();
                     tmparr = (byte[]) converter.ConvertTo(img, typeof(byte[]));
                     dp.add_image("update table_doctors set Name = '" + textBox1.Text + "', ClincName = '" + textBox4.Text + "', Address = '" + textBox3.Text + "', phone = '" + textBox2.Text + "', Image = @img " +
-                    "where Id = '" + _chosen_doctor_id + "'", tmparr);
+                    "where Doctor_Id = '" + _chosen_doctor_id + "'", tmparr);
                 }
                 else
                 {
                     dp.insert("update table_doctors set Name = '" + textBox1.Text + "', ClincName = '" + textBox4.Text + "', Address = '" + textBox3.Text + "', phone = '" + textBox2.Text + "'" +
-                    "where Id = '" + _chosen_doctor_id + "'");
+                    "where Doctor_Id = '" + _chosen_doctor_id + "'");
                 }
                 dp.close();
             }

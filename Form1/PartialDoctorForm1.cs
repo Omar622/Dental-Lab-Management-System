@@ -83,16 +83,15 @@ namespace Laboratory_Management_System
                         using (MemoryStream ms = new MemoryStream(bytes))
                         {
                             pictureBox1.Image = Image.FromStream(ms);
-
                         }
                     }
                     catch
                     {
                         pictureBox1.Image = Properties.Resources.unknown_user;
                     }
+                    _chosen_doctor_id = int.Parse(sdr["Doctor_Id"].ToString());
+                    doctors_transaction_load(_chosen_doctor_id);
                 }
-                _chosen_doctor_id = int.Parse(sdr["Id"].ToString());
-                doctors_transaction_load(_chosen_doctor_id);
                 dp.close();
             }
             groupBox4.Hide();
@@ -108,7 +107,7 @@ namespace Laboratory_Management_System
                 while (sdr.Read())
                 {
                     dataGridView2.Rows.Add(
-                        int.Parse(sdr["Id"].ToString()),
+                        int.Parse(sdr["Doctor_Id"].ToString()),
                         (DateTime)sdr["Date"],
                         sdr["PatientName"].ToString(),
                         sdr["Order"].ToString(),

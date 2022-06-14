@@ -14,8 +14,8 @@ namespace Laboratory_Management_System
             Database dp = new Database("db_doctors");
             if (dp.setConnection())
             {
-                SqlDataReader sdr = dp.query("select Id from table_doctors where Name = '" + _name + "'");
-                if (sdr.Read()) return (int)sdr["Id"];
+                SqlDataReader sdr = dp.query("select Doctor_Id from table_doctors where Name = '" + _name + "'");
+                if (sdr.Read()) return (int)sdr["Doctor_Id"];
                 dp.close();
             }
 

@@ -127,6 +127,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\CircularButton.datasource" />
     <None Include="Properties\DataSources\Database.datasource" />
     <None Include="Properties\DataSources\DataRow.datasource" />

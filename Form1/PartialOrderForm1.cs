@@ -55,7 +55,7 @@ namespace Laboratory_Management_System
                 {
                     string _name, _phone, _address;
                     sdr.Close();
-                    sdr = dp.query("select Name from table_doctors where Id = " + _doctor_id[i]);
+                    sdr = dp.query("select Name from table_doctors where Doctor_Id = " + _doctor_id[i]);
                     if (sdr.Read())
                     {
                         _name = (string)sdr["Name"];
@@ -63,7 +63,7 @@ namespace Laboratory_Management_System
                     else continue;
                     sdr.Close();
 
-                    sdr = dp.query("select Phone from table_doctors where Id = " + _doctor_id[i]);
+                    sdr = dp.query("select Phone from table_doctors where Doctor_Id = " + _doctor_id[i]);
                     if (sdr.Read())
                     {
                         _phone = (string)sdr["Phone"];
@@ -71,7 +71,7 @@ namespace Laboratory_Management_System
                     else continue;
                     sdr.Close();
 
-                    sdr = dp.query("select Address from table_doctors where Id = " + _doctor_id[i]);
+                    sdr = dp.query("select Address from table_doctors where Doctor_Id = " + _doctor_id[i]);
                     if (sdr.Read())
                     {
                         _address = (string)sdr["Address"];
